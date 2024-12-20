@@ -54,7 +54,7 @@ const Register = () => {
           </label>
         </div>
         <div className="form-control mt-6">
-          <button className="btn bg-blue-400">Sign Up</button>
+          <button className="btn bg-blue-400 text-white">Sign Up</button>
         </div>
       </form>
       <div className="mb-4 ml-4">

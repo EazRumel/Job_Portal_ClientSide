@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
-import logo from "../assets/logoPhoto.png"
+import logo from "../assets/logo.png"
+import { FaHome } from 'react-icons/fa';
+import { RiProfileFill } from 'react-icons/ri';
 
 const Navbar = () => {
   const {user,singOutUser} = useContext(AuthContext)
@@ -16,7 +18,8 @@ const Navbar = () => {
   }
   const links = <>
     <ul className="gap-5 flex">
-    <button className="btn btn-sm bg-blue-400 cursor:pointer"><NavLink to="/">Home</NavLink></button>
+    <button className="btn text-white btn-sm bg-blue-400 cursor:pointer"><NavLink to="/">Home</NavLink><FaHome /></button>
+    <button className="btn text-white btn-sm bg-blue-400 cursor:pointer"><NavLink to="/myApplications">My Applications</NavLink><RiProfileFill /></button>
     
     </ul>
   </>
@@ -61,9 +64,9 @@ const Navbar = () => {
   <div className="navbar-end">
     {
       user ? <>
-      <button onClick={handleSignOutUser} className="btn btn-sm bg-blue-400">Log Out</button>
+      <button onClick={handleSignOutUser} className="btn btn-sm bg-red-400 text-white">Log Out</button>
       </> : <>
-      <Link to="/login" className="btn btn-sm bg-blue-400">Sign In</Link>
+      <Link to="/login" className="btn btn-sm bg-blue-400 text-white">Sign In</Link>
       <button  className="btn btn-link text-blue-400"><Link to="/register">Register</Link></button>
       </>
     }

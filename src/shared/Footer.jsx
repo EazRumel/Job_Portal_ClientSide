@@ -1,8 +1,8 @@
-import logo from "../assets/logoPhoto.png"
+import logo from "../assets/logo.png"
 
 const Footer = () => {
   return (
-    <footer className="footer bg-neutral text-white p-10">
+    <footer className="footer mt-20 bg-neutral text-white p-10">
   <aside>
     <img className="w-12" src={logo} alt="" />
     <p>

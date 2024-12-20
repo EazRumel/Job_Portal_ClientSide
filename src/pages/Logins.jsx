@@ -3,9 +3,13 @@ import Lottie from 'react-lottie';
 import animateLottie from "../assets/animation/login.json"
 import { AuthContext } from '../provider/AuthProvider';
 import SocialLogin from '../shared/SocialLogin';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Logins = () => {
   const {userLogin} = useContext(AuthContext)
+  const location = useLocation()
+  const navigate = useNavigate()
+  const from = location.state || "/"
   const handleLogin = (event) =>{
     event.preventDefault();
     const form = event.target;
@@ -15,6 +19,7 @@ const Logins = () => {
     userLogin(email, password)
     .then((result) => {
       console.log(result);
+      navigate(from)
     })
     .catch((error) => {
       console.log(error.message);
@@ -53,7 +58,7 @@ const Logins = () => {
           </label>
         </div>
         <div className="form-control mt-6">
-          <button className="btn bg-blue-400">Sign In</button>
+          <button className="btn bg-blue-400 text-white">Sign In</button>
         </div>
       </form>
       <div className="mb-4 ml-4">

@@ -29,8 +29,8 @@ const Banner = () => {
        <motion.span
        transition={{duration:1.5, repeat:Infinity}}
        animate={{color:["#33ffcb","#33fff1"]}}
-       > Job</motion.span> for you!</motion.h1>
-      <p className="py-6">
+       > Job</motion.span></motion.h1>
+      <p className="py-6 text-blue-400">
         Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
         quasi. In deleniti eaque aut repudiandae et a id nisi.
       </p>
