@@ -2,18 +2,30 @@ import { useEffect, useState } from "react";
 import useAuth from "../hooks/AuthInfo";
 import { MdDelete } from "react-icons/md";
 import { div } from "motion/react-client";
+import axios from "axios";
+import useAxiosSecure from "../hooks/useAxiosSecure";
+
 
 
 const MyApplications = () => {
   const {user} = useAuth();
   const [jobs,setJobs] = useState([]);
+  const axiosSecure = useAxiosSecure()
+
   useEffect(()=>{
-    fetch(`http://localhost:3000/job-applications?email=${user.email}`)
-    .then(response => response.json())
-    .then(data=>{
-    setJobs(data)
-    })
-  },[user.email])
+    // fetch(`http://localhost:3000/job-applications?email=${user.email}`)
+    // .then(response => response.json())
+    // .then(data=>{
+    // setJobs(data)
+    // })
+    // axios.get(`http://localhost:3000/job-applications?email=${user.email}`,{withCredentials:true})
+    // .then(result => setJobs(result.data))
+   axiosSecure.get(`/job-applications?email=${user.email}`)
+   .then(result => {
+    setJobs(result.data)
+   })
+  },
+  [user.email])
   return (
    <div>
         <div className="overflow-x-auto">

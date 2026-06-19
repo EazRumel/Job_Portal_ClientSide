@@ -4,6 +4,8 @@ import { AuthContext } from '../provider/AuthProvider';
 import logo from "../assets/logo.png"
 import { FaHome } from 'react-icons/fa';
 import { RiProfileFill } from 'react-icons/ri';
+import { LuClipboardPenLine } from 'react-icons/lu';
+import { BsFillFilePostFill } from 'react-icons/bs';
 
 const Navbar = () => {
   const {user,singOutUser} = useContext(AuthContext)
@@ -20,6 +22,8 @@ const Navbar = () => {
     <ul className="gap-5 flex">
     <button className="btn text-white btn-sm bg-blue-400 cursor:pointer"><NavLink to="/">Home</NavLink><FaHome /></button>
     <button className="btn text-white btn-sm bg-blue-400 cursor:pointer"><NavLink to="/myApplications">My Applications</NavLink><RiProfileFill /></button>
+    <button className="btn text-white btn-sm bg-blue-400 cursor:pointer"><NavLink to="/addJob">Add Job</NavLink><LuClipboardPenLine /></button>
+    <button className="btn text-white btn-sm bg-blue-400 cursor:pointer"><NavLink to="/myPostedJobs">Posted Jobs</NavLink><BsFillFilePostFill /></button>
     
     </ul>
   </>

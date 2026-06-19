@@ -4,6 +4,7 @@ import animateLottie from "../assets/animation/login.json"
 import { AuthContext } from '../provider/AuthProvider';
 import SocialLogin from '../shared/SocialLogin';
 import { useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Logins = () => {
   const {userLogin} = useContext(AuthContext)
@@ -15,10 +16,15 @@ const Logins = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+    // console.log(email, password);
     userLogin(email, password)
     .then((result) => {
-      console.log(result);
+      console.log(result.user.email);
+      const user = {email:email}
+      axios.post("http://localhost:3000/jwt",user,{withCredentials:true})
+      .then(result =>{
+        console.log(result.data)
+      })
       navigate(from)
     })
     .catch((error) => {
